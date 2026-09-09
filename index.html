@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro para un Torneo de Videojuegos</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --accent: #22c55e;
+      --accent-dark: #16a34a;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --border: #334155;
+      --input-bg: #1e293b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, #14532d 0, transparent 35%),
+        radial-gradient(circle at bottom right, #1e3a8a 0, transparent 30%),
+        var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+
+    .subtitle {
+      margin: 0 0 24px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    form {
+      background: rgba(17, 24, 39, 0.92);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 2px solid #64748b;
+      background: #0b1220;
+    }
+
+    td {
+      border: 1px solid #64748b;
+      padding: 12px 14px;
+      vertical-align: middle;
+    }
+
+    td:first-child {
+      width: 220px;
+      font-weight: bold;
+      color: #e2e8f0;
+      background: #1e293b;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="date"] {
+      width: 100%;
+      max-width: 320px;
+      padding: 8px 10px;
+      border: 1px solid #475569;
+      border-radius: 6px;
+      background: var(--input-bg);
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    input[type="number"] {
+      max-width: 100px;
+    }
+
+    input:focus {
+      outline: 2px solid var(--accent);
+      border-color: var(--accent);
+    }
+
+    .opciones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 20px;
+      align-items: center;
+    }
+
+    .opciones label {
+      font-weight: normal;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .botones {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    button {
+      min-width: 140px;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button[type="submit"] {
+      background: var(--accent);
+      color: #052e16;
+    }
+
+    button[type="submit"]:hover {
+      background: var(--accent-dark);
+    }
+
+    button[type="reset"] {
+      background: #334155;
+      color: var(--text);
+    }
+
+    button[type="reset"]:hover {
+      background: #475569;
+    }
+
+    .nota {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Registro para un Torneo de Videojuegos</h1>
+    <p class="subtitle">Actividad M2A2 — Completa el formulario para inscribirte</p>
+
+    <form action="#" method="post">
+      <table>
+        <tr>
+          <td><label for="nombre">Nombre del jugador:</label></td>
+          <td>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              required
+              minlength="3"
+              maxlength="15"
+              placeholder="Ej. Juan Pérez">
+          </td>
+        </tr>
+        <tr>
+          <td><label for="correo">Correo:</label></td>
+          <td>
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              required
+              placeholder="ejemplo@correo.com">
+          </td>
+        </tr>
+        <tr>
+          <td><label for="edad">Edad:</label></td>
+          <td>
+            <input
+              type="number"
+              id="edad"
+              name="edad"
+              required
+              min="12"
+              max="40"
+              placeholder="12-40">
+          </td>
+        </tr>
+        <tr>
+          <td><label for="nickname">Nickname:</label></td>
+          <td>
+            <input
+              type="text"
+              id="nickname"
+              name="nickname"
+              required
+              pattern="[A-Za-z0-9]+"
+              title="Solo letras y números, sin espacios ni símbolos"
+              placeholder="Ej. Gamer123">
+          </td>
+        </tr>
+        <tr>
+          <td>Categoría:</td>
+          <td>
+            <div class="opciones">
+              <label>
+                <input type="radio" name="categoria" value="principiante" required>
+                Principiante
+              </label>
+              <label>
+                <input type="radio" name="categoria" value="intermedio">
+                Intermedio
+              </label>
+              <label>
+                <input type="radio" name="categoria" value="experto">
+                Experto
+              </label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Juegos favoritos:</td>
+          <td>
+            <div class="opciones">
+              <label>
+                <input type="checkbox" name="juegos" value="FIFA">
+                FIFA
+              </label>
+              <label>
+                <input type="checkbox" name="juegos" value="LoL">
+                LoL
+              </label>
+              <label>
+                <input type="checkbox" name="juegos" value="Minecraft">
+                Minecraft
+              </label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="fecha">Fecha inscripción:</label></td>
+          <td>
+            <input
+              type="date"
+              id="fecha"
+              name="fecha"
+              required
+              min="2025-01-01"
+              max="2025-12-31">
+          </td>
+        </tr>
+      </table>
+
+      <div class="botones">
+        <button type="submit">Enviar</button>
+        <button type="reset">Restablecer</button>
+      </div>
+    </form>
+
+    <p class="nota">La fecha de inscripción solo admite días del año 2025.</p>
+  </div>
+</body>
+</html>
